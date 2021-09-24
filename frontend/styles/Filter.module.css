@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 0 -1rem;
+  gap: 1rem;
+  border: 1px solid #e0e0e0;
+  position: sticky;
+  top: -1px;
+  background: white;
+  transition: box-shadow 0.25s ease;
+}
+
+.inputs {
+  display: flex;
+  gap: 1rem;
+}
+
+.dropdown {
+  min-width: 200px;
+}
+
+.shadows {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+}

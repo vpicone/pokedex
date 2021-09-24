@@ -1,0 +1,123 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  border: 1px solid #e0e0e0;
+}
+
+.cardFooter {
+  background: #f4f4f4;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.evolutions {
+  font-weight: bolder;
+  font-size: larger;
+  display: block;
+  margin-top: 2rem;
+}
+
+.detail .name {
+  font-size: x-large;
+}
+
+.types {
+  margin-top: 2px;
+}
+
+.imageWrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.imageWrapper img {
+  height: 100%;
+  width: 100%;
+  height: 200px;
+  max-height: 200px;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+.detail .imageWrapper img {
+  height: 400px;
+  max-height: 400px;
+  margin: 1rem;
+}
+
+.heart {
+  height: 20px;
+  width: 20px;
+}
+
+.bars {
+  padding: 0 12px;
+}
+
+.bar {
+  margin-bottom: 12px;
+  display: flex;
+}
+
+.bar span {
+  margin-left: 12px;
+  width: 4rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.bar meter {
+  flex: 1;
+}
+
+.cp meter::-webkit-meter-bar {
+  background: #4589ff;
+}
+
+.hp meter::-webkit-meter-bar {
+  background: #42be65;
+}
+
+.stats {
+  display: flex;
+  border-top: 1px solid #e0e0e0;
+}
+
+.statCategory {
+  font-weight: bold;
+  font-size: larger;
+  margin-bottom: 8px;
+}
+
+.statBlock {
+  width: 50%;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.statBlock:first-of-type {
+  border-right: 1px solid #e0e0e0;
+}

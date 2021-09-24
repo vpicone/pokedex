@@ -1,0 +1,17 @@
+.homeButton {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #393939;
+  transition: background 0.25s ease;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+}
+
+.homeButton:hover {
+  background: #474747;
+}
