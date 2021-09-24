@@ -16,13 +16,13 @@ function createApolloClient() {
       credentials: "same-origin", // Additional fetch() options like `credentials` or `headers`
     }),
     cache: new InMemoryCache({
-      //   typePolicies: {
-      //     Query: {
-      //       fields: {
-      //         allPosts: concatPagination(),
-      //       },
-      //     },
-      //   },
+      typePolicies: {
+        Query: {
+          fields: {
+            allPokemon: concatPagination(),
+          },
+        },
+      },
     }),
   });
 }

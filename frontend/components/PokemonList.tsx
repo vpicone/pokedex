@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { gql, useQuery, NetworkStatus } from "@apollo/client";
 import { ErrorMessage } from "./ErrorMessage";
 import styles from "../styles/PokemonList.module.css";
 import { Card } from "./Card";
@@ -7,36 +7,70 @@ import { Filter } from "./Filter";
 
 export const ALL_POKEMON_QUERY = gql`
   query allPokemon($limit: Int!, $offset: Int!) {
-    pokemonTypes
-    pokemons(query: { limit: $limit, offset: $offset }) {
-      edges {
-        name
-        types
-        isFavorite
-        image
-        id
-      }
+    allPokemonMeta {
+      count
+      types
+    }
+    allPokemon(query: { limit: $limit, offset: $offset }) {
+      name
+      types
+      isFavorite
+      image
+      id
     }
   }
 `;
 
 export default function PokemonList() {
+  const intersectionRef = useRef(null);
   const [search, setSearch] = useState("");
   const [type, setType] = useState("");
   const [showFavorites, shouldShowFavorites] = useState(false);
-  const { loading, error, data } = useQuery(ALL_POKEMON_QUERY, {
-    variables: { offset: 0, limit: 151 },
+  const {
+    loading,
+    error,
+    data = {},
+    networkStatus,
+    fetchMore,
+  } = useQuery(ALL_POKEMON_QUERY, {
+    variables: { offset: 0, limit: 20 },
+    notifyOnNetworkStatusChange: true,
   });
+
+  const loadingMorePokemon = networkStatus === NetworkStatus.fetchMore;
+
+  const handleObserver = useCallback(
+    (entries) => {
+      const target = entries[0];
+      if (target.isIntersecting && !loadingMorePokemon) {
+        fetchMore({
+          variables: {
+            offset: data.allPokemon.length,
+          },
+        });
+      }
+    },
+    [fetchMore, data]
+  );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleObserver, {
+      rootMargin: "20px",
+      root: null,
+      threshold: 0,
+    });
+    if (intersectionRef.current) observer.observe(intersectionRef.current);
+    return () => observer.disconnect();
+  }, [handleObserver]);
 
   if (error) {
     console.error(error);
-    return <ErrorMessage message="Error loading posts." />;
+    return <ErrorMessage message="Error loading pokemon." />;
   }
 
-  if (loading) return <div>Loading</div>;
+  if (loading && !loadingMorePokemon) return null;
 
-  const { pokemons, pokemonTypes } = data;
-  const allPokemon = pokemons.edges;
+  const { allPokemon, allPokemonMeta } = data;
 
   const filteredPokemon = allPokemon.filter((pokemon: any) => {
     if (showFavorites && !pokemon.isFavorite) {
@@ -58,13 +92,14 @@ export default function PokemonList() {
         setSearch={setSearch}
         setType={setType}
         setShouldShowFavorites={shouldShowFavorites}
-        types={pokemonTypes}
+        types={allPokemonMeta.types}
       />
       <ul className={styles.cardList}>
         {matchingPokemon.map((pokemon: any) => (
           <Card key={pokemon.name} pokemon={pokemon} />
         ))}
       </ul>
+      <div ref={intersectionRef} />
     </section>
   );
 }

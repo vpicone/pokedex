@@ -46,7 +46,6 @@ const DetailPage = () => {
   if (loading) return null;
 
   const { pokemonByName: pokemon } = data;
-  console.log(pokemon);
 
   return (
     <main>
