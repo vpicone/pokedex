@@ -50,6 +50,16 @@ const resolvers = {
         edges,
       };
     },
+    allPokemon: (__, args) => {
+      const { limit, offset } = args.query;
+      return pokemonsData.slice(offset, offset + limit);
+    },
+    allPokemonMeta: (__, args) => {
+      return {
+        count: pokemonsData.length,
+        types: _.uniq(_.flatMap(pokemonsData, (pokemon) => pokemon.types)),
+      };
+    },
     pokemonById: (_, args) =>
       pokemonsData.find((pokemon) => pokemon.id === args.id),
     pokemonByName: (_, args) =>
