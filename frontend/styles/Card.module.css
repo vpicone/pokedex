@@ -38,6 +38,10 @@
   font-size: x-large;
 }
 
+.detail {
+  margin-top: 4rem;
+}
+
 .types {
   margin-top: 2px;
 }

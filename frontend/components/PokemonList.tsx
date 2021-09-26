@@ -33,7 +33,7 @@ export default function PokemonList() {
     networkStatus,
     fetchMore,
   } = useQuery(ALL_POKEMON_QUERY, {
-    variables: { offset: 0, limit: 20 },
+    variables: { offset: 0, limit: 20, search, type },
     notifyOnNetworkStatusChange: true,
   });
 
@@ -46,6 +46,11 @@ export default function PokemonList() {
         fetchMore({
           variables: {
             offset: data.allPokemon.length,
+            search,
+            filter: {
+              type: type && type !== "All",
+              isFavorite: showFavorites,
+            },
           },
         });
       }
@@ -94,7 +99,7 @@ export default function PokemonList() {
         setShouldShowFavorites={shouldShowFavorites}
         types={allPokemonMeta.types}
       />
-      <ul className={styles.cardList}>
+      <ul key={search} className={styles.cardList}>
         {matchingPokemon.map((pokemon: any) => (
           <Card key={pokemon.name} pokemon={pokemon} />
         ))}
