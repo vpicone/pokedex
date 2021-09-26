@@ -51,7 +51,24 @@ const resolvers = {
       };
     },
     allPokemon: (__, args) => {
-      const { limit, offset } = args.query;
+      const { limit, offset, search, filter } = args.query;
+      if (search) {
+        const regex = new RegExp(search, "i");
+        pokemons = _.filter(pokemons, (p) => p.name.match(regex));
+      }
+
+      if (filter) {
+        if (filter.type) {
+          const regex = new RegExp(filter.type, "i");
+          pokemons = _.filter(pokemons, (p) =>
+            _.some(p.types, (t) => t.match(regex))
+          );
+        }
+
+        if (filter.isFavorite) {
+          pokemons = _.filter(pokemons, (p) => !!favorites.get(p.id));
+        }
+      }
       return pokemonsData.slice(offset, offset + limit);
     },
     allPokemonMeta: (__, args) => {
