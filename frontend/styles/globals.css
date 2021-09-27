@@ -26,6 +26,12 @@ a {
   text-decoration: none;
 }
 
+meter {
+  -webkit-appearance: none; /* for Chrome, Safari */
+  -moz-appearance: none; /* for Firefox */
+  appearance: none;
+}
+
 * {
   box-sizing: border-box;
 }
