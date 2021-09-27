@@ -1,6 +1,8 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { gql, useQuery, NetworkStatus } from "@apollo/client";
 import { ErrorMessage } from "./ErrorMessage";
+import Image from "next/image";
+import missingNoSrc from "../images/missingno.png";
 import styles from "../styles/PokemonList.module.css";
 import { Card } from "./Card";
 import { Filter } from "./Filter";
@@ -99,11 +101,22 @@ export default function PokemonList() {
         setShouldShowFavorites={shouldShowFavorites}
         types={allPokemonMeta.types}
       />
-      <ul key={search} className={styles.cardList}>
-        {matchingPokemon.map((pokemon: any) => (
-          <Card key={pokemon.name} pokemon={pokemon} />
-        ))}
-      </ul>
+      {matchingPokemon.length ? (
+        <ul key={search} className={styles.cardList}>
+          {matchingPokemon.map((pokemon: any) => (
+            <Card key={pokemon.name} pokemon={pokemon} />
+          ))}
+        </ul>
+      ) : (
+        <div className={styles.noResults}>
+          <Image
+            objectFit="contain"
+            src={missingNoSrc}
+            alt="Missing Number pokemon."
+          />
+          <p>No results.</p>
+        </div>
+      )}
       <div ref={intersectionRef} />
     </section>
   );

@@ -14,11 +14,11 @@
 
 .homeButton svg {
   transition: fill 0.25s ease;
-  fill: #4589ff;
+  fill: var(--blue);
 }
 
 .homeButton:hover svg {
-  fill: #0353e9;
+  fill: var(--blue-hover);
 }
 @media (max-width: 600px) {
   .homeButton {

@@ -17,11 +17,11 @@
 }
 
 .error a {
-  color: #4589ff;
+  color: var(--blue);
   text-decoration: underline;
   margin-top: 0.5rem;
 }
 
 .error a:hover {
-  color: #0353e9;
+  color: var(--blue-hover);
 }

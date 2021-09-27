@@ -7,7 +7,7 @@
 }
 
 .cardFooter {
-  background: #f4f4f4;
+  background: var(--background);
   position: relative;
 }
 
@@ -96,11 +96,11 @@
 }
 
 .cp meter::-webkit-meter-bar {
-  background: #4589ff;
+  background: var(--blue);
 }
 
 .hp meter::-webkit-meter-bar {
-  background: #42be65;
+  background: var(--green);
 }
 
 .stats {
@@ -138,14 +138,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  fill: #4589ff;
+  fill: var(--blue);
   transition: fill 0.25s ease;
   background: none;
   cursor: pointer;
 }
 
 .svg:hover {
-  fill: #0353e9;
+  fill: var(--blue-hover);
 }
 
 .evolve {
