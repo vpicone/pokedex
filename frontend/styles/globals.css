@@ -1,5 +1,6 @@
 html {
   overflow-y: scroll;
+  --border: #e0e0e0;
 }
 html,
 body {
