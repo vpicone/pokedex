@@ -5,7 +5,7 @@ const fs = require("fs");
 const _ = require("lodash");
 const pokemonsData = require("./pokemons");
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const BASE_URL = `http://localhost:${PORT}`;
 
 const typeDefs = fs.readFileSync(`${__dirname}/schema.graphql`, "utf-8");
