@@ -110,6 +110,7 @@ export default function PokemonList() {
       ) : (
         <div className={styles.noResults}>
           <Image
+            placeholder="blur"
             objectFit="contain"
             src={missingNoSrc}
             alt="Missing Number pokemon."
