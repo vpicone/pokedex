@@ -2,9 +2,10 @@
   "name": "frontend-code-challenge",
   "version": "1.0.0",
   "scripts": {
-    "run:backend": "cd backend && npm start",
-    "run:frontend": "cd frontend && npm run dev",
-    "start": "run-p 'run:backend' 'run:frontend'"
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm run dev",
+    "start": "run-p 'start:backend' 'start:frontend'",
+    "publish:backend": "git subtree push --prefix backend heroku main"
   },
   "author": "Vince Picone",
   "license": "ISC",
