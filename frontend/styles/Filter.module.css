@@ -30,6 +30,7 @@
 
 @media (max-width: 600px) {
   .container {
-    margin: 0;
+    margin: 0 -0.5rem;
+    max-width: 100vw;
   }
 }

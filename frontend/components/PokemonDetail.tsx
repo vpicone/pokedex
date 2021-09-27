@@ -5,9 +5,17 @@ import { useRouter } from "next/router";
 import { Audio } from "./Audio";
 import cx from "classnames";
 import confetti from "canvas-confetti";
+import { ErrorMessage } from "./ErrorMessage";
 
 export const PokemonDetail = ({ pokemon }: any) => {
   const router = useRouter();
+
+  if (!pokemon) {
+    return (
+      <ErrorMessage message={`pokemon, ${router.query.name}, not found.`} />
+    );
+  }
+
   const {
     name,
     image,

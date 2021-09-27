@@ -1,0 +1,27 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error h1 {
+  margin-bottom: 1rem;
+}
+
+.error p {
+  max-width: 60vw;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.error a {
+  color: #4589ff;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+}
+
+.error a:hover {
+  color: #0353e9;
+}
