@@ -1,6 +1,7 @@
 import { Heart, Card } from "./Card";
 import cardStyles from "../styles/Card.module.css";
 import pokemonListStyles from "../styles/PokemonList.module.css";
+import { Audio } from "./Audio";
 import cx from "classnames";
 
 export const PokemonDetail = ({ pokemon }: any) => {
@@ -24,6 +25,7 @@ export const PokemonDetail = ({ pokemon }: any) => {
             <img height="100%" width="100%" alt={`${name}`} src={image} />
           </div>
           <div className={cardStyles.cardFooter}>
+            <Audio id={id} />
             <div className={cardStyles.info}>
               <div className={cardStyles.data}>
                 <span className={cardStyles.name}>{name}</span>

@@ -55,7 +55,7 @@ export default function PokemonList() {
         });
       }
     },
-    [fetchMore, data]
+    [fetchMore, data, loadingMorePokemon, type, showFavorites]
   );
 
   useEffect(() => {

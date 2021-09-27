@@ -40,7 +40,7 @@ export const Filter: React.FC<any> = ({
           placeholder="Aa"
           size="lg"
           labelText="Search"
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value || "")}
         />
         <Dropdown
           className={styles.dropdown}

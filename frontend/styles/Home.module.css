@@ -1,17 +1,19 @@
 .homeButton {
-  width: 48px;
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
   height: 48px;
+  width: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  background: #393939;
-  transition: background 0.25s ease;
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
 }
 
-.homeButton:hover {
-  background: #474747;
+.homeButton svg {
+  transition: fill 0.25s ease;
+  fill: #4589ff;
+}
+
+.homeButton:hover svg {
+  fill: #0353e9;
 }

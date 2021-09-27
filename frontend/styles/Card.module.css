@@ -8,6 +8,7 @@
 
 .cardFooter {
   background: #f4f4f4;
+  position: relative;
 }
 
 .info {
@@ -124,4 +125,25 @@
 
 .statBlock:first-of-type {
   border-right: 1px solid #e0e0e0;
+}
+
+.audio {
+  position: absolute;
+  padding: 0;
+  border: none;
+  top: -42px;
+  left: 10px;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: #4589ff;
+  transition: fill 0.25s ease;
+  background: none;
+  cursor: pointer;
+}
+
+.audio:hover {
+  fill: #0353e9;
 }

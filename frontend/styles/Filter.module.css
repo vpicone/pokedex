@@ -9,6 +9,7 @@
   top: -1px;
   background: white;
   transition: box-shadow 0.25s ease;
+  z-index: 1;
 }
 
 .inputs {
