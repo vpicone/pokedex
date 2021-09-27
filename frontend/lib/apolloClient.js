@@ -8,15 +8,13 @@ export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__";
 
 let apolloClient;
 
-const URI =
-  process.env.NODE_ENV === "production"
-    ? "https://vp-pokedex.herokuapp.com/graphql"
-    : "http://localhost:4000/graphql";
+import { BASE_URI } from "./env";
+
 function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === "undefined",
     link: new HttpLink({
-      uri: "https://vp-pokedex.herokuapp.com/graphql", // Server URL (must be absolute)
+      uri: `${BASE_URI}/graphql`, // Server URL (must be absolute)
       credentials: "same-origin", // Additional fetch() options like `credentials` or `headers`
     }),
     cache: new InMemoryCache({

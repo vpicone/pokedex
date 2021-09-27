@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect } from "react";
+import { useEffect } from "react";
 import { useAudio } from "react-use";
 import styles from "../styles/Card.module.css";
+import { BASE_URI } from "../lib/env";
 
 type Props = {
   id: string;
@@ -8,7 +9,7 @@ type Props = {
 
 export const Audio: React.FC<Props> = ({ id }) => {
   const [audio, state, controls] = useAudio({
-    src: `http://localhost:4000/sounds/${parseInt(id)}`,
+    src: `${BASE_URI}/sounds/${parseInt(id)}`,
   });
 
   useEffect(() => {
