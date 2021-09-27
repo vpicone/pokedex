@@ -11,3 +11,13 @@
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   grid-auto-rows: minmax(300px, auto);
 }
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 0.5rem;
+  }
+  .cardList {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+  }
+}

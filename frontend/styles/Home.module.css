@@ -7,6 +7,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: white;
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .homeButton svg {
@@ -16,4 +19,10 @@
 
 .homeButton:hover svg {
   fill: #0353e9;
+}
+@media (max-width: 600px) {
+  .homeButton {
+    left: auto;
+    right: 0.5rem;
+  }
 }
