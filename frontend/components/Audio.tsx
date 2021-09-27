@@ -26,7 +26,7 @@ export const Audio: React.FC<Props> = ({ id }) => {
   };
 
   return (
-    <button className={styles.audio} onClick={() => onClick()}>
+    <button className={styles.svg} onClick={() => onClick()}>
       {audio}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
         {state.playing ? (

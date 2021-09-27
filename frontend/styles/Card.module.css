@@ -127,7 +127,7 @@
   border-right: 1px solid #e0e0e0;
 }
 
-.audio {
+.svg {
   position: absolute;
   padding: 0;
   border: none;
@@ -144,6 +144,11 @@
   cursor: pointer;
 }
 
-.audio:hover {
+.svg:hover {
   fill: #0353e9;
+}
+
+.evolve {
+  top: -82px;
+  left: 8px;
 }
