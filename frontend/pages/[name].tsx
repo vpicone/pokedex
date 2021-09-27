@@ -39,8 +39,7 @@ const DetailPage = () => {
   });
 
   if (error) {
-    console.error(error);
-    return <ErrorMessage message="Error loading posts." />;
+    return <ErrorMessage message="Error loading pokemon." />;
   }
 
   if (loading) return null;
