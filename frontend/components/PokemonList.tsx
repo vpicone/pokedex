@@ -101,7 +101,7 @@ export default function PokemonList() {
         setShouldShowFavorites={shouldShowFavorites}
         types={allPokemonMeta.types}
       />
-      {matchingPokemon.length ? (
+      {matchingPokemon.length || loadingMorePokemon ? (
         <ul key={search} className={styles.cardList}>
           {matchingPokemon.map((pokemon: any) => (
             <Card key={pokemon.name} pokemon={pokemon} />
